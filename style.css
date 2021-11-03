@@ -1,0 +1,19 @@
+h1 {
+    color:red;
+    background-color: cadetblue;
+    font-size: 40px;
+}
+.body_background {
+background-image: url("https://www.pngkit.com/png/detail/128-1286806_transparent-crayon-border-clipart-crayon-drawing-clip-crayon.png");
+background-position: center;
+background-size: cover;
+}
+body {
+    cursor: pointer;
+}
+#myCanvas {
+    border-width: 10px;
+    background-color: rgb(0, 255, 115);
+    border-style: ridge;
+}
+
