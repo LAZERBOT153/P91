@@ -1,16 +1,31 @@
 <html>
     <head>
-        <title>Paint App</title>
-        <link href="style.css" rel="stylesheet">
-        <script type="text/javascript"></script>
+        <title>Math Quiz!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script src="main.js"></script>
     </head>
-    <body class="body_background">
-        <div align="center">
-            <h1>Paint!</h1>
-            <canvas id="myCanvas" width="800" height="600">
-            </canvas>
-        </div>
-        <script src="main.js">
-        </script>
+    <body>
+        <div class="container">
+        <center>
+        <h2 style="color: white;">Math Quiz!</h2>
+<h3 id="player_question"></h3>
+<h3 id="player_answer"></h3>
+<div id="output" class="col-lg-6"></div>
+<br>
+<br>
+<label>Send your math equation: <b class="btn btn-warning">Try putting 2 numbers of any operation</b>
+    <br>
+</label>
+<input type="onclick" id="math" placeholder="EQUATION">
+<br>
+<button onclick="send()" class="btn btn-success" style="width: 30%;">SEND</button>
+</center>
+</div>
     </body>
 </html>

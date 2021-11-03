@@ -1,39 +1,38 @@
+function addUser() {
+    player1_name=document.getElementById("player1_name_input").value;
+    player2_name=document.getElementById("player2_name_input").value;
 
-var last_position_of_x,last_position_of_y;
-canvas=document.getElementById("myCanvas");
-ctx=canvas.getContext("2d");
-color="blue";
-width_of_line=1;
-var width=screen.width;
-var new_width=screen.width-70;
-var new_height=screen.height-300;
-if (width<992) {
-    document.getElementById("myCanvas").width=new_width;
-    document.getElementById("myCanvas").height=new_height;
-    document.body.style.overflow="hidden";
-}
-canvas.addEventListener("touchstart",my_touchStart);
-function my_touchStart(e) {
-    console.log ("my_touchStart");
-    last_position_of_x=e.touches[0].clientX-canvasoffsetLeft;
-    last_position_of_y=e.touches[0].clientY-canvasoffsetTop;
-    }
-    canvas.addEventListener("touchmove",my_touchmove);
-function my_touchmove(e) {
-    current_position_of_touch_x=e.touches[0].clientX-canvas.offsetLeft;
-    current_position_of_touch_y=e.touches[0].clientY-canvas.offsetTop;
-        ctx.beginPath();
-        ctx.strokeStyle=color;
-        ctx.lineWidth=width_of_line;
-        ctx.moveTo(last_position_of_x,last_position_of_y);
-        ctx.lineTo(current_position_of_touch_x,current_position_of_touch_y);
-        ctx.stroke();
-    last_position_of_x=current_position_of_touch_x;
-    last_position_of_y=current_position_of_touch_y;
+    localStorage.setItem("player1_name", player1_name);
+    localStorage.setItem("player2_name", player2_name);
+
+    window.location("index.html")
 }
 
+player1_name=localStorage.getItem("player1_name");
+player2_name=localStorage.getItem("player2_name");
+
+player1_score=0;
+player2_score=0;
+
+document.getElementById("player1_name").innerHTML=player1_name+":";
+document.getElementById("player2_name").innerHTML=player2_name+":";
+
+document.getElementById("player1_score").innerHTML=player1_score;
+document.getElementById("player2_score").innerHTML=player2_score;
+
+document.getElementById("player_question").innerHTML="Question Turn -"+player1_name;
+document.getElementById("player_answer").innerHTML="Answer Turn -"+player2_name;
 
 
-
-
-
+function send() {
+    number1=document.getElementById("number1").value;
+    number2=document.getElementById("number2").value;
+    actual_answer=parseInt(number1)*parseInt(number2);
+    question_number="<h4>"+number1+"X"+number2+"</h4>";
+    input_box="<br>Answer : <input type='text' id='input_check_box'>";
+    check_button="<br><br><button class='btn btn-info' onclick='check()'>Check</button>";
+    row=question_number+input_box+check_button;
+    document.getElementById("output").innerHTML=row;
+    document.getElementById("number1").value="";
+    document.getElementById("number2").value="";
+}
